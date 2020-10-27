@@ -1,9 +1,1 @@
-/.env
-/.next
-/next.config.js
 /node_modules
-/package-lock.json
-/package.json
-/pages
-/products_export.csv
-/server.js
