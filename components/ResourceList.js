@@ -83,9 +83,9 @@ class ResourceListWithProducts extends React.Component {
                     <ResourceList.Item
                       id={item.id}
                       media={media}
-											accessibilityLabel={`View details for ${item.title}`}
-											onClick={() => {
-                        store.set('item', item);
+                      accessibilityLabel={`View details for ${item.title}`}
+                      onClick={() => {
+                        store.set("item", item);
                         redirectToProduct();
                       }}
                     >

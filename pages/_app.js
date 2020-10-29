@@ -19,13 +19,14 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     const config = {
       apiKey: API_KEY,
+      embedded_app: false,
       shopOrigin: Cookies.get("shopOrigin"),
       forceRedirect: true,
     };
     return (
       <>
         <Head>
-          <title>Sample App</title>
+          <title>Survey Shopify App</title>
           <meta charSet="utf-8" />
         </Head>
         <Provider config={config}>
