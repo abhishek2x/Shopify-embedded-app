@@ -2,7 +2,7 @@
 
 ## Use cases
 
-* **Authentication** Fuctionality at: https://<ngrok_gateway>/auth?shonp=embedded-game.myshopify.com
+* **Authentication** Fuctionality at:*https://<ngrok_gateway>/auth?shop=embedded-game.myshopify.com*
 * Once logged in, you'll be inside your app (which can be *embedded using iframe*).
 * In your app, you can use *GraphQL API* to perform **CRUD operations** on **Products, customers, orders, etc.**
 * The input fields for above operations can be taken using **SurveySparrow conversational forms**
