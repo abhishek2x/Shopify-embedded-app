@@ -10,6 +10,10 @@
 
 ## Images 
 
+## SurveySparrow
+
+<img src="images/logo.png" ></img>
+
 ### Embedded app inside Shopify
 
 <img src="images/embedded.png"></img>
