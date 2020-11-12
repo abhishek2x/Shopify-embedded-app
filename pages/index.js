@@ -10,10 +10,11 @@ class Index extends React.Component {
   state = { open: false };
   render() {
     const emptyState = !store.get("ids");
+
     return (
       <Page>
         <TitleBar
-          title="Sample App"
+          title="SurveySparrow App"
           primaryAction={{
             content: "Select products",
             onAction: () => this.setState({ open: true }),
@@ -40,8 +41,8 @@ class Index extends React.Component {
             </EmptyState>
           </Layout>
         ) : (
-          <ResourceListWithProducts />
-        )}
+            <ResourceListWithProducts />
+          )}
       </Page>
     );
   }

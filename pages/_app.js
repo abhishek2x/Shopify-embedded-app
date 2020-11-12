@@ -26,7 +26,9 @@ class MyApp extends App {
     return (
       <>
         <Head>
-          <title>Survey Shopify App</title>
+          <title>SurveySparrow Shopify App</title>
+          {/* <link rel="shortcut icon" type="image/x-icon" href="../images/logo.png" />
+          <icon href="../images/logo.png" ></icon> */}
           <meta charSet="utf-8" />
         </Head>
         <Provider config={config}>
