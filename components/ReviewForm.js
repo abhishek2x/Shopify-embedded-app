@@ -6,6 +6,7 @@ function ReviewForm() {
     const [input, setInput] = useState("")
     const [email, setemail] = useState("")
 
+    // endpoint to share a form through mail
     const url = 'https://api.surveysparrow.com/v1/surveys/88713/sections'
     const bearer = 'Bearer ' + 'prmBB9NJSm3a6kmcwxsnUfwZviZpuItiOKlqxVyY2vMcI3HBszI_LqBgYcEaA4PEebPUcfntIQXcL_q8YeFAwSUw';
     const json_query = {

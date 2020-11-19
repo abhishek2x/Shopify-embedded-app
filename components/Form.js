@@ -23,7 +23,7 @@ function Form() {
         };
         fetch(url, requestOptions)
             .then(
-                console.log("sent")
+                console.log("sent") 
             )
     }, [email]);
 
