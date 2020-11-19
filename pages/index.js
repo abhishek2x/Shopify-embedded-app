@@ -1,13 +1,17 @@
-import React from "react";
-import { EmptyState, Layout, Page } from "@shopify/polaris";
+import React, { useCallback } from "react";
+import { EmptyState, Layout, Modal, Page } from "@shopify/polaris";
 import { ResourcePicker, TitleBar } from "@shopify/app-bridge-react";
 import store from "store-js";
 import ResourceListWithProducts from "../components/ResourceList";
+import { VariablesAreInputTypesRule } from "graphql";
+import Form from '../components/Form'
+import ReviewForm from '../components/ReviewForm'
 
 const img = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
 
 class Index extends React.Component {
   state = { open: false };
+
   render() {
     const emptyState = !store.get("ids");
 
@@ -16,10 +20,11 @@ class Index extends React.Component {
         <TitleBar
           title="SurveySparrow App"
           primaryAction={{
-            content: "Select products",
-            onAction: () => this.setState({ open: true }),
+            content: "Send Surveys",
+            onAction: () => this.setState({ on: true }),
           }}
         />
+        {/* <h1>hEKKI</h1> */}
         <ResourcePicker
           resourceType="Product"
           showVariants={false}
@@ -27,7 +32,7 @@ class Index extends React.Component {
           onSelection={(resources) => this.handleSelection(resources)}
           onCancel={() => this.setState({ open: false })}
         />
-        {emptyState ? (
+        { emptyState ? (
           <Layout>
             <EmptyState
               heading="Select products to start"
@@ -37,12 +42,34 @@ class Index extends React.Component {
               }}
               image={img}
             >
-              <p>Select products and change their price temporarily</p>
+              <p>Select products and change their price.</p>
+              <sendSurvey />
             </EmptyState>
           </Layout>
         ) : (
-            <ResourceListWithProducts />
+            <>
+              <Modal
+                activator={`<Button onClick={handleChange}>Open</Button>`}
+                open={true}
+                onClose={handleChange}
+                title="Reach more shoppers with Instagram product tags"
+                primaryAction={{
+                  content: 'Add Instagram',
+                  onAction: handleChange,
+                }}
+                secondaryActions={[
+                  {
+                    content: 'Learn more',
+                    onAction: handleChange,
+                  },
+                ]}
+              ></Modal>
+              <ResourceListWithProducts />
+            </>
           )}
+
+        <Form />
+        <ReviewForm />
       </Page>
     );
   }
@@ -51,6 +78,7 @@ class Index extends React.Component {
     this.setState({ open: false });
     store.set("ids", idsFromResources);
   };
+
 }
 
 export default Index;
