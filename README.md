@@ -1,6 +1,6 @@
 # Shopify-embedded-app
 
-## Pre-requisited
+## Pre-requisites
 
 * [Create a Shopify partner account](https://partners.shopify.com/signup).
 * Create an App in [Shopify Development store](https://help.shopify.com/en/partners/dashboard/development-stores#create-a-development-store) where you can install and test your app.
@@ -34,12 +34,11 @@ Link:
 
 ***
 
-
 ## SurveySparrow **><** Shopify
 
 <div>
-<img src="images/logo.png" width=200px"></img>
-<img src="images/logo3.png" width=200px"></img>
+<img src="images/logo.png" width="200px"></img>
+<img src="images/logo3.png" width="200px"></img>
 </div>
 
 ***
@@ -78,6 +77,23 @@ Option to add our compant logo is avaliable in shopify app setup.
 * The input fields for above operations can be taken using **SurveySparrow conversational forms**
 * Listen for store events with webhooks. We can implement webhooks to trigger at a specific event and notify users of the same. 
 
+
+## About API
+
+For sharing Survey through emails
+  * Create a Survey(you will get `survey_id`)
+  * Create a Email Share Link(you will get `share_id`)
+  * Using share_id you can send survey to an `array of emails`
+
+API Endpoint: `https://api.surveysparrow.com/v1/shares/email/<share_id>`
+
+> We are using the about technique to share the Shopify **order creation form** and **Order Review form** with the customers through **email**.
+
+Complete api details and work done on Postman is shared [here](https://github.com/abhishek2x/Postman-Collection-Backup/blob/main/SurveySparrow.postman_collection.json)
+
+[*Shopify Order API Documentation*](https://shopify.dev/docs/admin-api/rest/reference/orders/order)  
+
+
 ## Technology Stack
 
 - React
@@ -90,7 +106,7 @@ Option to add our compant logo is avaliable in shopify app setup.
   - shopify/polaris
   
 ***
-  
+
 ## License
 
 This respository is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
