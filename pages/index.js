@@ -6,6 +6,7 @@ import ResourceListWithProducts from "../components/ResourceList";
 import { VariablesAreInputTypesRule } from "graphql";
 import Form from '../components/Form'
 import ReviewForm from '../components/ReviewForm'
+import CreateOrder from '../components/CreateOrder'
 
 const img = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
 
@@ -19,10 +20,10 @@ class Index extends React.Component {
       <Page>
         <TitleBar
           title="SurveySparrow App"
-          primaryAction={{
-            content: "Send Surveys",
-            onAction: () => this.setState({ on: true }),
-          }}
+          // primaryAction={{
+          //   content: "Send Surveys",
+          //   onAction: () => this.setState({ open: true }),
+          // }}
         />
         {/* <h1>hEKKI</h1> */}
         <ResourcePicker
@@ -68,6 +69,7 @@ class Index extends React.Component {
             </>
           )}
 
+        <CreateOrder />
         <Form />
         <ReviewForm />
       </Page>

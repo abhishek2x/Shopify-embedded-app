@@ -1,4 +1,4 @@
-import { EmptyState } from '@shopify/polaris'
+import { Button, EmptyState } from '@shopify/polaris'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
@@ -25,10 +25,14 @@ function Form() {
             .then(
                 console.log("Review sent") 
             )
+            .catch((err) => {
+                console.log(err)
+            })
     }, [email]);
 
 
     const sendSurveys = (e) => {
+        console.log("Button clicked")
         e.preventDefault();
         if (input) {
             setemail(input);

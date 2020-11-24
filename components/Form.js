@@ -1,4 +1,4 @@
-import { EmptyState } from '@shopify/polaris'
+import { Button, EmptyState } from '@shopify/polaris'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
@@ -25,11 +25,15 @@ function Form() {
             .then(
                 console.log("Order making form sent") 
             )
+            .catch((err) => {
+                console.log(err)
+            })
     }, [email]);
 
 
     const sendSurveys = (e) => {
         e.preventDefault();
+        console.log("Button clicked")
         if (input) {
             setemail(input);
             console.log(email)
