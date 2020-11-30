@@ -22,9 +22,17 @@ function Form() {
             })
         };
         fetch(url, requestOptions)
-            .then(
-                console.log("Review sent") 
-            )
+            .then((res) => {
+                console.log("Review sent")
+                console.log(`Status code: ${res.status}`);
+                console.log(`Status text: ${res.statusText}`);
+                console.log(`Request method: ${res.request.method}`);
+                console.log(`Path: ${res.request.path}`);
+
+                console.log(`Date: ${res.headers.date}`);
+                console.log(`Data: ${res.data}`);
+
+            })
             .catch((err) => {
                 console.log(err)
             })
@@ -56,7 +64,7 @@ function Form() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                 />
-                <br/>
+                <br />
                 <button type="submit">Submit</button>
             </form>
         </EmptyState>

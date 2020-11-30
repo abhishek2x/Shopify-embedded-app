@@ -20,10 +20,10 @@ class Index extends React.Component {
       <Page>
         <TitleBar
           title="SurveySparrow App"
-          // primaryAction={{
-          //   content: "Send Surveys",
-          //   onAction: () => this.setState({ open: true }),
-          // }}
+        // primaryAction={{
+        //   content: "Send Surveys",
+        //   onAction: () => this.setState({ open: true }),
+        // }}
         />
         {/* <h1>hEKKI</h1> */}
         <ResourcePicker
@@ -48,25 +48,7 @@ class Index extends React.Component {
             </EmptyState>
           </Layout>
         ) : (
-            <>
-              <Modal
-                activator={`<Button onClick={handleChange}>Open</Button>`}
-                open={true}
-                onClose={handleChange}
-                title="Reach more shoppers with Instagram product tags"
-                primaryAction={{
-                  content: 'Add Instagram',
-                  onAction: handleChange,
-                }}
-                secondaryActions={[
-                  {
-                    content: 'Learn more',
-                    onAction: handleChange,
-                  },
-                ]}
-              ></Modal>
-              <ResourceListWithProducts />
-            </>
+            <ResourceListWithProducts />
           )}
 
         <CreateOrder />
