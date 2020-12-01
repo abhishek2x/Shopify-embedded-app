@@ -4,9 +4,8 @@ import { ResourcePicker, TitleBar } from "@shopify/app-bridge-react";
 import store from "store-js";
 import ResourceListWithProducts from "../components/ResourceList";
 import { VariablesAreInputTypesRule } from "graphql";
-import Form from '../components/Form'
-import ReviewForm from '../components/ReviewForm'
 import CreateOrder from '../components/CreateOrder'
+import CustomerList from "../components/CustomerList";
 
 const img = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
 
@@ -20,12 +19,7 @@ class Index extends React.Component {
       <Page>
         <TitleBar
           title="SurveySparrow App"
-        // primaryAction={{
-        //   content: "Send Surveys",
-        //   onAction: () => this.setState({ open: true }),
-        // }}
         />
-        {/* <h1>hEKKI</h1> */}
         <ResourcePicker
           resourceType="Product"
           showVariants={false}
@@ -52,8 +46,7 @@ class Index extends React.Component {
           )}
 
         <CreateOrder />
-        <Form />
-        <ReviewForm />
+        <CustomerList />
       </Page>
     );
   }

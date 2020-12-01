@@ -1,52 +1,37 @@
 import { Button, EmptyState } from '@shopify/polaris'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
+// Shopify API
 function Form() {
 
-  const url = 'https://embedded-game.myshopify.com/admin/api/2020-10/draft_orders.json'
-  const bearer = 'Bearer ' + 'pr0XQuLJrxoeXIiJ6fhDnp_pJ3QgHQ2-8jY2xTrjbfLx1Iv-iFn6KxNtGi01SRDDFWJUmDpNS8SnawQl97OGIMkA';
+  const url = 'https://embedded-game.myshopify.com/admin/api/2020-10/customers.json'
 
   const requestOptions = {
-    method: 'POST',
+    method: 'GET',
+    mode: 'no-cors',
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': bearer,
-      "crossDomain": true,
-      'Access-Control-Allow-Origin': '*',
-    },
-    body: JSON.stringify({
-      "draft_order": {
-        "line_items": [
-          {
-            "title": "Custom Tee",
-            "price": "20.00",
-            "quantity": 2
-          }
-        ],
-        "applied_discount": {
-          "description": "Custom discount",
-          "value_type": "fixed_amount",
-          "value": "10.0",
-          "amount": "10.00",
-          "title": "Custom"
-        },
-        "customer": {
-          "id": 4434849562811
-          // 207119551
-        },
-        "use_customer_default_address": true
-      }
-    })
+      'X-Shopify-Access-Token': 'ae3cb5e86bd8d57567291d56426f12a8',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Access-Control-Allow-Origin': '*'
+    }
+    // body: JSON.stringify({
+    //   "draft_order": {
+    //     "id": 719429238971,
+    //     "note": "Customer contacted us about a custom engraving on this iPod"
+    //   }
+    // })
   };
 
   const createOrder = (e) => {
     e.preventDefault();
     console.log("Order Create Button clicked")
     fetch(url, requestOptions)
-      .then(
-        console.log("Order Created!!")
-      )
+      .then((res) => {
+        console.log(res)
+        console.log("There you go...!")
+      })
       .catch((err) => {
         console.log(err)
       })
@@ -57,8 +42,7 @@ function Form() {
       heading="Create Order"
     >
       <form onSubmit={createOrder}>
-        <button type="submit">Create a new Draft Order</button>
-        {/* <Button type="submit"></Button> */}
+        <Button submit primary>Create a new Draft Order</Button>
       </form>
     </EmptyState>
   )

@@ -1,66 +1,55 @@
 import { Button, EmptyState } from '@shopify/polaris'
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React from 'react'
 
-function Form() {
-    const [input, setInput] = useState("")
-    const [email, setemail] = useState("")
+// SurveySparrow API
+function Form({ customers, setCustomers }) {
 
-    const url = 'https://api.surveysparrow.com/v1/shares/email/2238828'
-    const bearer = 'Bearer ' + 'pr0XQuLJrxoeXIiJ6fhDnp_pJ3QgHQ2-8jY2xTrjbfLx1Iv-iFn6KxNtGi01SRDDFWJUmDpNS8SnawQl97OGIMkA';
+  const url = 'https://api.surveysparrow.com/v1/shares/email/2238828'
+  const bearer = 'Bearer ' + 'pr0XQuLJrxoeXIiJ6fhDnp_pJ3QgHQ2-8jY2xTrjbfLx1Iv-iFn6KxNtGi01SRDDFWJUmDpNS8SnawQl97OGIMkA';
+  const requestOptions = {
+    method: 'PUT',
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': bearer,
+    },
+    body: JSON.stringify({
+      "contacts": customers
+    })
+  };
 
-    useEffect(() => {
-        const requestOptions = {
-            method: 'PUT',
-            withCredentials: true,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': bearer,
-            },
-            body: JSON.stringify({
-                "contacts": [email]
-            })
-        };
-        fetch(url, requestOptions)
-            .then(
-                console.log("Order making form sent") 
-            )
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [email]);
+  const sendMail = (e) => {
 
+    e.preventDefault();
+    console.log("Sending Mail to Customers...")
 
-    const sendSurveys = (e) => {
-        e.preventDefault();
-        console.log("Button clicked")
-        if (input) {
-            setemail(input);
-            console.log(email)
-            setInput("");
-        }
+    if (customers) {
+      console.log(customers)
+
+      fetch(url, requestOptions)
+        .then((res) => {
+          console.log("Order taking form sent to Customers!")
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+
+      setCustomers([]);
     }
+    else {
+      console.log("You haven't selected any customers")
+    }
+  };
 
-    return (
-        <EmptyState
-            heading="Share Survey through emails"
-        >
-            {/* <p>Enter the email address of customers.</p> */}
-            <form onSubmit={sendSurveys}>
-                <label for="name">Name</label>
-                <input
-                    placeholder="Email id"
-                    type="input"
-                    name="input"
-                    id="input"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                />
-                <br/>
-                <button type="submit">Submit</button>
-            </form>
-        </EmptyState>
-    )
+  return (
+    <EmptyState >
+      <form onSubmit={sendMail}>
+        <label for="name">Share Survey through emails</label>
+        <br />
+        <Button submit primary>Submit</Button>
+      </form>
+    </EmptyState>
+  )
 }
 
-export default Form
+export default Form;
