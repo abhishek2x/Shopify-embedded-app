@@ -46,15 +46,18 @@ class ResourceListWithProducts extends React.Component {
 
   render() {
     const app = this.context;
+
     const redirectToProduct = () => {
       const redirect = Redirect.create(app);
       redirect.dispatch(Redirect.Action.APP, "/edit-products");
     };
+
     const twoWeeksFromNow = new Date(Date.now() + 12096e5).toDateString();
+
     return (
       <Query query={GET_PRODUCTS_BY_ID} variables={{ ids: store.get("ids") }}>
         {({ data, loading, error }) => {
-          if (loading) return <div>Loading…</div>;
+          if (loading) return <div>DataLoading…</div>;
           if (error) return <div>{error.message}</div>;
           console.log(data);
           return (

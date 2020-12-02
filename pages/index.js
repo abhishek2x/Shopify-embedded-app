@@ -1,9 +1,8 @@
-import React, { useCallback } from "react";
-import { EmptyState, Layout, Modal, Page } from "@shopify/polaris";
+import React from "react";
+import { EmptyState, Layout, Page } from "@shopify/polaris";
 import { ResourcePicker, TitleBar } from "@shopify/app-bridge-react";
 import store from "store-js";
 import ResourceListWithProducts from "../components/ResourceList";
-import { VariablesAreInputTypesRule } from "graphql";
 import CreateOrder from '../components/CreateOrder'
 import CustomerList from "../components/CustomerList";
 
@@ -38,18 +37,18 @@ class Index extends React.Component {
               image={img}
             >
               <p>Select products and change their price.</p>
-              <sendSurvey />
             </EmptyState>
           </Layout>
         ) : (
             <ResourceListWithProducts />
           )}
 
-        <CreateOrder />
+        <hr />
         <CustomerList />
+        <CreateOrder />
       </Page>
     );
-  }
+  } I
   handleSelection = (resources) => {
     const idsFromResources = resources.selection.map((product) => product.id);
     this.setState({ open: false });
