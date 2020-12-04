@@ -3,39 +3,52 @@ import React from 'react'
 
 // Shopify API
 function Form() {
-
-  const url = 'https://embedded-game.myshopify.com/admin/api/2020-10/customers.json'
+  const url = 'https://cors-anywhere.herokuapp.com/https://embedded-game.myshopify.com/admin/api/2020-10/draft_orders.json'
 
   const requestOptions = {
-    method: 'GET',
-    mode: 'no-cors',
+    method: 'POST',
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
       'X-Shopify-Access-Token': 'ae3cb5e86bd8d57567291d56426f12a8',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Origin': '*'
-    }
-    // body: JSON.stringify({
-    //   "draft_order": {
-    //     "id": 719429238971,
-    //     "note": "Customer contacted us about a custom engraving on this iPod"
-    //   }
-    // })
+    },
+    body: JSON.stringify({
+      "draft_order": {
+        "line_items": [
+          {
+            "custom": false,
+            "title": "Custom Product",
+            "product_id": 4008421883976,
+            "price": "1000.00",
+            "properties": [
+              {
+                "name": "custom engraving",
+                "value": "Happy Birthday Mom!"
+              }
+            ],
+            "quantity": 5
+          }
+        ],
+        "customer": {
+          "id": 1000
+        },
+        "email": "abhisheksrivastavabbn@gmail.com"
+      }
+    })
   };
 
   const createOrder = (e) => {
     e.preventDefault();
     console.log("Order Create Button clicked")
     fetch(url, requestOptions)
-      .then((res) => {
-        console.log(res)
-        console.log("There you go...!")
-      })
+      .then(
+        console.log("Order Created!!")
+      )
       .catch((err) => {
         console.log(err)
       })
   }
+
 
   return (
     <EmptyState

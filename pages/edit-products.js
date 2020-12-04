@@ -47,21 +47,26 @@ class EditProduct extends React.Component {
     return (
       <Mutation mutation={UPDATE_PRICE}>
         {(handleSubmit, { error, data }) => {
+
           const showError = error && (
             <Banner status="critical">{error.message}</Banner>
           );
+
           const showToast = data && data.productVariantUpdate && (
             <Toast
               content="Sucessfully updated"
               onDismiss={() => this.setState({ showToast: false })}
             />
           );
+
           return (
             <Frame>
               <Page>
                 <Layout>
                   {showToast}
-                  <Layout.Section>{showError}</Layout.Section>
+                  <Layout.Section>
+                    {showError}
+                  </Layout.Section>
                   <Layout.Section>
                     <DisplayText size="large">{name}</DisplayText>
                     <Form>
@@ -83,7 +88,6 @@ class EditProduct extends React.Component {
                               type="discount"
                             />
                           </FormLayout.Group>
-                          <p>This sale price will expire in two weeks</p>
                         </FormLayout>
                       </Card>
                       <PageActions

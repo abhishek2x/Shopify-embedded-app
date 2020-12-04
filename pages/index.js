@@ -5,6 +5,7 @@ import store from "store-js";
 import ResourceListWithProducts from "../components/ResourceList";
 import CreateOrder from '../components/CreateOrder'
 import CustomerList from "../components/CustomerList";
+import InviteCustomer from "../components/InviteCustomer";
 
 const img = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
 
@@ -12,12 +13,18 @@ class Index extends React.Component {
   state = { open: false };
 
   render() {
-    const emptyState = !store.get("ids");
 
     return (
       <Page>
         <TitleBar
           title="SurveySparrow App"
+        />
+        <EmptyState
+          heading="Select products to start"
+          action={{
+            content: "Select products",
+            onAction: () => this.setState({ open: true }),
+          }}
         />
         <ResourcePicker
           resourceType="Product"
@@ -26,26 +33,15 @@ class Index extends React.Component {
           onSelection={(resources) => this.handleSelection(resources)}
           onCancel={() => this.setState({ open: false })}
         />
-        { emptyState ? (
-          <Layout>
-            <EmptyState
-              heading="Select products to start"
-              action={{
-                content: "Select products",
-                onAction: () => this.setState({ open: true }),
-              }}
-              image={img}
-            >
-              <p>Select products and change their price.</p>
-            </EmptyState>
-          </Layout>
-        ) : (
-            <ResourceListWithProducts />
-          )}
+
+        <ResourceListWithProducts />
 
         <hr />
         <CustomerList />
+        <hr />
         <CreateOrder />
+        <hr />
+        <InviteCustomer />
       </Page>
     );
   } I
