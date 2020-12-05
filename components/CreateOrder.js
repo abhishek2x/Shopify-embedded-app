@@ -3,7 +3,7 @@ import React from 'react'
 
 // Shopify API
 function Form() {
-  const url = 'https://cors-anywhere.herokuapp.com/https://embedded-game.myshopify.com/admin/api/2020-10/draft_orders.json'
+  const url = 'https://embedded-game.myshopify.com/admin/api/2020-10/draft_orders.json'
 
   const requestOptions = {
     method: 'POST',
@@ -11,6 +11,7 @@ function Form() {
     headers: {
       'Content-Type': 'application/json',
       'X-Shopify-Access-Token': 'ae3cb5e86bd8d57567291d56426f12a8',
+      'Access-Control-Allow-Origin': '*'
     },
     body: JSON.stringify({
       "draft_order": {
@@ -48,7 +49,6 @@ function Form() {
         console.log(err)
       })
   }
-
 
   return (
     <EmptyState

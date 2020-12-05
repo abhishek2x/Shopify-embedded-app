@@ -97,27 +97,28 @@ function InviteCustomer() {
 
       <Layout >
         <Layout.Section oneHalf>
-          <EmptyState
-            heading="Responses are mentioned below, select to add to them among Customers"
-          >
-            <Card>
-              <Scrollable shadow style={{ height: '300px' }}>
-                <OptionList
-                  title="To be added among customers"
-                  onChange={setSelected}
-                  allowMultiple
-                  options={[
-                    { label: 'BBN Frank', value: 'abhisheksrivastavabbn@gmail.com' },
-                    { label: 'Sept Fifth', value: 'abhisheksrivastavasept5@gmail.com' },
-                  ]}
-                  selected={selected}
-                />
-              </Scrollable>
-            </Card>
-          </EmptyState>
+
+          <Card>
+            <Scrollable shadow style={{ height: '300px' }}>
+              <OptionList
+                title="To be added among customers"
+                onChange={setSelected}
+                allowMultiple
+                options={[
+                  { label: 'BBN Frank', value: 'abhisheksrivastavabbn@gmail.com' },
+                  { label: 'Sept Fifth', value: 'abhisheksrivastavasept5@gmail.com' },
+                ]}
+                selected={selected}
+              />
+            </Scrollable>
+          </Card>
         </Layout.Section>
         <Layout.Section oneHalf>
-          <AddCustomer />
+          <EmptyState
+            heading="Responses are mentioned here, select to add to them among Customers"
+          >
+            <AddCustomer />
+          </EmptyState>
           {/* <ReviewForm customers={selected} setCustomers={setSelected} /> */}
         </Layout.Section>
       </Layout>

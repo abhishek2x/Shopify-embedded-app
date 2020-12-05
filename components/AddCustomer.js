@@ -1,9 +1,10 @@
+import { Button } from '@shopify/polaris'
 import React from 'react'
 
 function AddCustomer() {
   return (
     <div>
-      <h1>Hello Button</h1>
+      <Button primary>Add Customer</Button>
     </div>
   )
 }
