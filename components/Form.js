@@ -1,7 +1,13 @@
 import { Button, EmptyState } from '@shopify/polaris'
 import React from 'react'
 
-// SurveySparrow API
+
+/*
+
+* Sharing order survey with the selected customers -> SurveySparrow API - here (done)
+
+*/
+
 function Form({ customers, setCustomers }) {
 
   const url = 'https://api.surveysparrow.com/v1/shares/email/2238828'

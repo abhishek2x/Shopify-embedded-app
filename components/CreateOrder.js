@@ -1,7 +1,13 @@
 import { Button, EmptyState } from '@shopify/polaris'
 import React from 'react'
 
-// Shopify API
+
+/*
+
+* Creating Order using Shopify API - here (not done)
+
+*/
+
 function Form() {
   const url = 'https://embedded-game.myshopify.com/admin/api/2020-10/draft_orders.json'
 

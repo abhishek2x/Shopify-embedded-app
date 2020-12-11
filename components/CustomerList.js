@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react'
 import Form from './Form';
 import ReviewForm from './ReviewForm';
 
+/*
+
+* Getting List of existing Customers -> Shopify API - here (not done)
+
+*/
+
 function CustomerList() {
   const [selected, setSelected] = useState([]);
 

@@ -57,7 +57,7 @@ class ResourceListWithProducts extends React.Component {
     return (
       <Query query={GET_PRODUCTS_BY_ID} variables={{ ids: store.get("ids") }}>
         {({ data, loading, error }) => {
-          if (loading) return <div>DataLoading…</div>;
+          if (loading) return <div>Data Loading…</div>;
           if (error) return <div>{error.message}</div>;
           console.log(data);
           return (

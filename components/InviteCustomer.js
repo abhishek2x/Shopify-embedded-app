@@ -4,8 +4,6 @@ import AddCustomer from './AddCustomer';
 
 /*
 
-Things I am doing here:
-
 * Sending an invitation to be among customers -> SurveySparrow API - here (done)
 * Fetching a list of people who filled a survey -> SurveySparrow API - here (stuck - cors)
 * Adding those people among my shopify Customers -> Shopify API - AddCustomer.js
