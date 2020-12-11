@@ -1,7 +1,6 @@
 import { Button, EmptyState } from '@shopify/polaris'
 import React from 'react'
 
-
 /*
 
 * Sharing order survey with the selected customers -> SurveySparrow API - here (done)
