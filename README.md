@@ -77,6 +77,19 @@ Option to add our compant logo is avaliable in shopify app setup.
 * The input fields for above operations can be taken using **SurveySparrow conversational forms**
 * Listen for store events with webhooks. We can implement webhooks to trigger at a specific event and notify users of the same. 
 
+## Implemented 
+* Authentication Functionality. `Shopify API`
+* **Getting Existing Customers** in Store using `Shopify API`  and **Sending SurveySparrow Review Form** to them through Mail using `SurveySparrow API`.
+* Sending SurveySparrow form through email to **add new customers** `SurveySparrow API`.
+* Getting all Products avaliable in Store `Shopify API`.
+
+
+**Note**: I have planned to add new customer in Shopify Store by sharing SurveySparrow Form to get their data and storing same data in Shopify Store.
+
+*Api endpoints of the above tasks are already implemented by wasn't able to make GET or POST request to SurveySparrow or Shopify due to **CORS Error***
+
+<img src="images/CORS.png"></img>
+
 
 ## About API
 

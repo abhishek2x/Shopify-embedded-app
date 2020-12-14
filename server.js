@@ -27,11 +27,8 @@ app.prepare().then(() => {
       apiKey: SHOPIFY_API_KEY,
       secret: SHOPIFY_API_SECRET_KEY,
       embedded_app: true,
-      scopes: [
-        'read_products','write_products',
-        'read_orders', 'write_orders', 'read_all_orders',
-        'read_script_tags', 'write_script_tags'
-      ],
+      scopes: ['read_products', 'write_products', 'read_customers'],
+
       afterAuth(ctx) {
         const { shop, accessToken } = ctx.session;
         ctx.cookies.set("shopOrigin", shop, {

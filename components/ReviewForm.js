@@ -26,10 +26,9 @@ function Form({ customers, setCustomers }) {
   const sendReviewForm = (e) => {
 
     e.preventDefault();
-    console.log("Sending Review Form to Customers...")
+    console.log("Sending Review Form to these Customers...\n", customers)
 
     if (customers) {
-      console.log(customers)
 
       fetch(url, requestOptions)
         .then((res) => {
